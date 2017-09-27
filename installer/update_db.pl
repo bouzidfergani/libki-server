@@ -73,7 +73,7 @@ foreach my $version_dir (@version_dirs) {
         }
     }
     
-    $schema->resultset('Setting')->update_or_create({ 'name' => 'Version', 'value' => $version });
+    $schema->resultset('Setting')->update_or_create({ instance => undef, 'name' => 'Version', 'value' => $version });
 }
 
 =head1 AUTHOR
