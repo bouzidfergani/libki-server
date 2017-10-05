@@ -60,7 +60,7 @@ sub get : Local : Args(1) {
 sub create : Local : Args(0) {
     my ( $self, $c ) = @_;
 
-    my $instance = $c->request->headers->{'libki-instance'};
+    my $instance = $c->instance;
 
     my $params = $c->request->params;
 
@@ -95,7 +95,7 @@ sub create : Local : Args(0) {
 sub create_guest : Local : Args(0) {
     my ( $self, $c ) = @_;
 
-    my $instance = $c->request->headers->{'libki-instance'};
+    my $instance = $c->instance;
 
     my $params = $c->request->params;
 
@@ -140,7 +140,7 @@ sub create_guest : Local : Args(0) {
 sub batch_create_guest : Local : Args(0) {
     my ( $self, $c ) = @_;
 
-    my $instance = $c->request->headers->{'libki-instance'};
+    my $instance = $c->instance;
 
     my $params = $c->request->params;
 
@@ -283,7 +283,7 @@ sub delete : Local : Args(1) {
 sub is_username_unique : Local : Args(1) {
     my ( $self, $c, $username ) = @_;
 
-    my $instance = $c->request->headers->{'libki-instance'};
+    my $instance = $c->instance;
 
     my $count =
       $c->model('DB::User')->search( { instance => $instance, username => $username } )->count();
